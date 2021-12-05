@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+}
+
+group 'fr.bakaaless'
+version '1.0-SNAPSHOT'
+setMainClassName('fr.bakaaless.ants.Simulator')
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = '16'
+targetCompatibility = '16'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+javafx {
+    version = '16'
+    modules = ['javafx.controls']
+}
+
+dependencies {
+
+}
+
+shadowJar {
+    manifest {
+        attributes 'Main-Class': 'fr.bakaaless.ants.Simulator'
+    }
+}
